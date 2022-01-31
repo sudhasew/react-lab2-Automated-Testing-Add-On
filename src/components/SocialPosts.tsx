@@ -32,9 +32,11 @@ export function SocialPosts() {
     // references are now sync'd and can be accessed.
     //subtitle.style.color = "#f00";
   }
+
   function closeModal() {
     setIsOpen(false);
   }
+
   function deletePost(index: number) {
     const newList = posts.slice(0);
     newList.splice(index, 1);
@@ -68,7 +70,7 @@ export function SocialPosts() {
       >
         <PostForm
           onSubmit={(post) => setNewPosts([...posts, post])}
-          onClose={() => console.log("close")}
+          onClose={() => closeModal()}
         ></PostForm>
       </Modal>
     </div>

@@ -22,15 +22,26 @@ export function PostForm(props: {
 
       <label htmlFor="thought">Thought</label>
       <textarea
+        className="setThought"
         value={thought}
         onChange={(e) => setThought(e.target.value)}
         name="thought"
       ></textarea>
 
-      <button onClick={() => props.onSubmit({ title, thought })}>
+      <button
+        className="addPost"
+        onClick={() => props.onSubmit({ title, thought })}
+      >
         Add Post
       </button>
-      <button onClick={() => props.onClose()}>close</button>
+      <button
+        className="closeBtn"
+        onClick={() => {
+          props.onClose();
+        }}
+      >
+        &#x2715;
+      </button>
     </div>
   );
 }

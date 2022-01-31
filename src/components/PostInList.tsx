@@ -15,7 +15,7 @@ export function PostInList({ post, onDelete }: Props) {
         </div>
         <div>
           <button className="deleteBtn" onClick={onDelete}>
-            Delete
+            Del
           </button>
         </div>
       </div>
