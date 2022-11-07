@@ -8,9 +8,9 @@ import Modal from "react-modal";
 export function SocialPosts() {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [posts, setNewPosts] = useState<Post[]>([
-    { title: "Grand Circus", thought: "Grand Circus is cool." },
-    { title: "React", thought: "React gave me power!" },
-    { title: "Beatrice", thought: "Lorem ipsum" },
+    { id: 0, title: "Grand Circus", thought: "Grand Circus is cool." },
+    { id: 1, title: "React", thought: "React gave me power!" },
+    { id: 2, title: "Beatrice", thought: "Lorem ipsum" },
   ]);
 
   const customStyles = {
@@ -21,6 +21,8 @@ export function SocialPosts() {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      backgroundColor: " #79c5e8",
+      border: "1px solid black",
     },
   };
 
@@ -28,24 +30,21 @@ export function SocialPosts() {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    //subtitle.style.color = "#f00";
-  }
+  function afterOpenModal() {}
 
   function closeModal() {
     setIsOpen(false);
   }
 
-  function deletePost(index: number) {
+  function deletePost(id: number, post: Post) {
     const newList = posts.slice(0);
-    newList.splice(index, 1);
+    newList.splice(id, 1);
     setNewPosts(newList);
+    window.alert(`Do You Want to delete ${post.title}`);
   }
 
   return (
     <div className="socialPosts-container">
-      {/* <button onClick={openModal}>Open Modal</button> */}
       <header>My Thoughts</header>
       <main>
         <button className="newThought" onClick={openModal}>
@@ -56,21 +55,23 @@ export function SocialPosts() {
             <PostInList
               key={i}
               post={post}
-              onDelete={() => deletePost(i)}
+              onDelete={() => deletePost(i, post)}
             ></PostInList>
           ))}
         </ul>
       </main>
+
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
+        ariaHideApp={false}
       >
         <PostForm
           onSubmit={(post) => setNewPosts([...posts, post])}
-          onClose={() => closeModal()}
+          onClose={closeModal}
         ></PostForm>
       </Modal>
     </div>

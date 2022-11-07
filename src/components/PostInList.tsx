@@ -1,5 +1,5 @@
 import { Post } from "../Post";
-
+import { FaTrash } from "react-icons/fa";
 interface Props {
   post: Post;
   onDelete: () => void;
@@ -14,8 +14,8 @@ export function PostInList({ post, onDelete }: Props) {
           <p>{post.thought}</p>
         </div>
         <div>
-          <button className="deleteBtn" onClick={onDelete}>
-            Del
+          <button className="deleteBtn" title="delete" onClick={onDelete}>
+            <FaTrash />
           </button>
         </div>
       </div>

@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+main {
+  position: absolute;
+  width: 550px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 body {
   background-color: #f3f1f7;
 }
@@ -16,6 +24,7 @@ header {
   color: #03a9f4;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .newThought {
@@ -24,7 +33,7 @@ header {
   padding: 20px;
   width: 100%;
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 900;
   border-radius: 10px;
   border: 2px solid black;
   color: white;
@@ -44,6 +53,8 @@ header {
   padding: 40px;
   list-style-type: none;
   font-size: 24px;
+  height: 350px;
+  overflow: scroll;
 }
 
 .side-by-side {
@@ -55,12 +66,11 @@ header {
 }
 
 .deleteBtn {
-  border: 1px solid black;
-  padding: 5px 5px;
-  border-radius: 10px;
+  border: none;
   background: none;
   font-weight: bold;
   cursor: pointer;
+  font-size: 22px;
 }
 
 .form-container {
@@ -70,12 +80,13 @@ header {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border: 1px solid black;
   border-radius: 7px;
+  width: 400px;
+  height: auto;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 1.2rem;
   padding: 7px;
   border-radius: 7px;
   border: 1px solid black;
@@ -85,7 +96,10 @@ header {
   width: 100%;
   border: 1px solid black;
   border-radius: 7px;
-  height: 100px;
+  height: 200px;
+  font-size: 1.2rem;
+  padding: 7px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .form-container label {
@@ -103,14 +117,10 @@ header {
 
 .closeBtn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 5px;
   border: none;
   background: none;
   font-size: 1rem;
   cursor: pointer;
 }
-
-/* .fa fa-trash {
-  font-size: 20px;
-} */
