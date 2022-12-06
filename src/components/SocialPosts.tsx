@@ -51,13 +51,30 @@ export function SocialPosts() {
           New Thought
         </button>
         <ul className="list-container">
-          {posts.map((post, i) => (
-            <PostInList
-              key={i}
-              post={post}
-              onDelete={() => deletePost(i, post)}
-            ></PostInList>
-          ))}
+          {posts.length > 0 ? (
+            posts.map((post, i) => (
+              <PostInList
+                key={i}
+                post={post}
+                onDelete={() => deletePost(i, post)}
+              ></PostInList>
+            ))
+          ) : (
+            <p
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%,-50%)",
+                textTransform: "uppercase",
+                fontSize: "2rem",
+                letterSpacing: "1px",
+                wordSpacing: "10px",
+              }}
+            >
+              No Posts found
+            </p>
+          )}
         </ul>
       </main>
 

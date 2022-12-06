@@ -15,9 +15,18 @@ export function PostForm({ onSubmit, onClose }: Props) {
     e.preventDefault();
     console.info("title :", title);
     console.info("thought :", thought);
-    onSubmit({ title, thought });
-    window.alert(`You added ${title} ${thought} new thought`);
+    if (title.length === 0) {
+      window.alert("Please add a valid title");
+      onClose();
+      return;
+    } else if (thought.length === 0) {
+      window.alert("Please add a valid thought");
+      return;
+    } else {
+      window.alert(`You added ${title} ${thought} new thought`);
+    }
     onClose();
+    onSubmit({ title, thought });
   }
 
   return (
